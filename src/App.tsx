@@ -32,17 +32,17 @@ function App() {
   const classes = useStyles()
   const theme = useTheme()
 
-  const [tip, setTip] = useState((0).toFixed(2))
-  const [total, setTotal] = useState((0).toFixed(2))
-  const [bill, setBill] = useState(0)
-  const [numPeople, setNumPeople] = useState(0)
+  const [tip, setTip] = useState<number>(+(0).toFixed(2))
+  const [total, setTotal] = useState<number>(+(0).toFixed(2))
+  const [bill, setBill] = useState<number>(0)
+  const [numPeople, setNumPeople] = useState<number>(0)
 
-  const calculate = (rate) => {
+  const calculate = (rate : number) :void => {
     let currentTip = +(bill * rate).toFixed(2)
     let tipPerPerson = +currentTip / +numPeople
     let totalBill = currentTip + bill
-    setTip((tipPerPerson).toFixed(2))
-    setTotal((totalBill).toFixed(2))
+    setTip(+((tipPerPerson).toFixed(2)))
+    setTotal(+((totalBill).toFixed(2)))
   }
 
   const reset = () => {
@@ -78,7 +78,7 @@ function App() {
                 id="numberPeople" label="Number of People"
                 variant="filled" fullWidth
                 placeholder="0"
-                onChange={ (e) => setNumPeople(Math.round(e.target.value))}
+                onChange={ (e) => setNumPeople(Math.round(+(e.target.value)))}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">

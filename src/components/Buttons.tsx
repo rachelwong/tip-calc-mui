@@ -10,14 +10,20 @@ const useStyles = makeStyles((theme) => {
     }
   }
 })
-const Buttons = ({ rates, calculate }) => {
+
+type Props = {
+  rates: number[],
+  calculate: Function
+}
+
+const Buttons: React.FC<Props> = ({ rates, calculate }) => {
   const classes = useStyles()
   return (
     <Grid container spacing={2} className={classes.root}>
       {rates.map((rate, key) => (
       <Grid item xs={4} key={ key}>
         <Button disableElevation variant="contained" fullWidth size="large" color="primary" onClick={() => calculate(rate) }>
-            { rate * 100}%
+            { +(rate) * 100}%
         </Button>
       </Grid>
       ))}
