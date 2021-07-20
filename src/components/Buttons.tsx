@@ -16,7 +16,7 @@ type Props = {
   calculate: Function
 }
 
-const Buttons: React.FC<Props> = ({ rates, calculate }) => {
+const Buttons: React.VFC<Props> = ({ rates, calculate }) => {
   const classes = useStyles()
   return (
     <Grid container spacing={2} className={classes.root}>
